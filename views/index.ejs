@@ -1,0 +1,20 @@
+<% include ./partials/header %>
+<div id="superdiv" class="ui text main container segment">
+<h1 id="head" class="ui centered header">Blog App</h1>
+</div>
+
+<% blogs.forEach(function(blog){ %>
+    <div class="ui main text container segment">
+        <h2><%=blog.title%></h2>
+        <img class="mainimg" src="<%=blog.image%>">
+        <br>
+        <span><%=blog.created.toDateString()%></span>
+        <% if(blog.body) { %>
+        <p><%= blog.body.substring(0, 100) %></p>
+        <% } %>
+        <a class="ui inverted green button" href="/blogs/<%= blog._id %>">Read More</a>
+    </div>
+<% }) %>
+
+
+<% include ./partials/fotter %>
